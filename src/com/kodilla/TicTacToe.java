@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -44,10 +45,11 @@ public class TicTacToe extends Application {
         border.setTop(hbox);
         border.setLeft(vBox);
 
-        Scene scene = new Scene(border, 800, 600);
+        Scene scene = new Scene(border, 800, 800);
 
         primaryStage.setTitle("Tic-Tac-Toe");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("file:resources/icon.jpg"));
         primaryStage.show();
     }
 }

@@ -9,10 +9,12 @@ import javafx.scene.shape.Rectangle;
 public class Board extends GridPane {
 
     public Board() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                add(new Rectangle(140, 140, Color.BLACK), col, row);
-                add(new Rectangle(130, 130, Color.WHITE), col, row);
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 5; col++) {
+                add(new Rectangle(140, 140, Color.valueOf("#336699")), col, row);
+                if (col > 0 && col < 4 && row > 0 && row < 4) {
+                    add(new Rectangle(130, 130, Color.WHITE), col, row);
+                }
             }
         }
     }
