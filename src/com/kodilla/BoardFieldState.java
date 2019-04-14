@@ -1,6 +1,6 @@
 package com.kodilla;
 
-public enum BoardField {
+public enum BoardFieldState {
     EMPTY,
     O,
     X

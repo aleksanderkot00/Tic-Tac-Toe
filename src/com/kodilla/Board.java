@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Board extends GridPane {
 
-    private BoardField[][] boardFields = new BoardField[3][3];
+    private BoardFieldState[][] boardFields = new BoardFieldState[3][3];
 
     public Board() {
         restartBoard();
@@ -21,7 +21,7 @@ public class Board extends GridPane {
     public int getNumberOfMoves() {
         return (int) Arrays.stream(boardFields).
                 flatMap(bf -> Arrays.stream(bf)).
-                filter(bf -> ! bf.equals(BoardField.EMPTY)).
+                filter(bf -> ! bf.equals(BoardFieldState.EMPTY)).
                 count();
     }
 
@@ -36,7 +36,7 @@ public class Board extends GridPane {
         while(getChildren().size() > 0){
             getChildren().remove(0);
         }
-        Arrays.stream(boardFields).forEach(a -> Arrays.fill(a, BoardField.EMPTY));
+        Arrays.stream(boardFields).forEach(a -> Arrays.fill(a, BoardFieldState.EMPTY));
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 add(new Rectangle(160, 160, Color.BLACK), col, row);
@@ -44,13 +44,13 @@ public class Board extends GridPane {
                 add(field, col, row);
                 field.setOnMouseClicked(d -> {
                     if (getNumberOfMoves() % 2 == 0 &&
-                            boardFields[getColumnIndex(field)][getRowIndex(field)].equals(BoardField.EMPTY)) {
+                            boardFields[getColumnIndex(field)][getRowIndex(field)].equals(BoardFieldState.EMPTY)) {
                         add(new ImageView(new Image("file:resources/O.png")), getColumnIndex(field), getRowIndex(field));
-                        boardFields[getColumnIndex(field)][getRowIndex(field)] = BoardField.O;
+                        boardFields[getColumnIndex(field)][getRowIndex(field)] = BoardFieldState.O;
                         refreshBoard();
-                    } else if (boardFields[getColumnIndex(field)][getRowIndex(field)].equals(BoardField.EMPTY)) {
+                    } else if (boardFields[getColumnIndex(field)][getRowIndex(field)].equals(BoardFieldState.EMPTY)) {
                         add(new ImageView(new Image("file:resources/X.png")), getColumnIndex(field), getRowIndex(field));
-                        boardFields[getColumnIndex(field)][getRowIndex(field)] = BoardField.X;
+                        boardFields[getColumnIndex(field)][getRowIndex(field)] = BoardFieldState.X;
                         refreshBoard();
                     }
                 });
