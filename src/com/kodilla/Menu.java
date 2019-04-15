@@ -20,16 +20,19 @@ public class Menu extends HBox {
         newGame.setOnAction(e -> {
             board.restartBoard();
         });
+
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
         saveGame.setOnAction(e -> {
 
         });
+
         Button loadGame = new Button("Load game");
+        loadGame.setPrefSize(100, 20);
         loadGame.setOnAction(e -> {
 
         });
-        loadGame.setPrefSize(100, 20);
+
         getChildren().addAll(newGame, saveGame,loadGame);
     }
 }
