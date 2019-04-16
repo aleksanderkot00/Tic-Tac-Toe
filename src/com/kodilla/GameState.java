@@ -18,7 +18,7 @@ public class GameState {
     }
 
     public boolean isDraw() {
-        return getNumberOfMoves() == 9L && !hasFigureWon(BoardFieldState.O) && !hasFigureWon(BoardFieldState.X);
+        return getNumberOfMoves() == 9 && !hasFigureWon(BoardFieldState.O) && !hasFigureWon(BoardFieldState.X);
     }
 
     public boolean isOver() {
@@ -36,7 +36,7 @@ public class GameState {
                 count();
     }
 
-    public BoardFieldState[][] getTransposedBoardFields() {
+    private BoardFieldState[][] getTransposedBoardFields() {
         BoardFieldState[][] transposedBoardFields = new BoardFieldState[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -46,7 +46,7 @@ public class GameState {
         return transposedBoardFields;
     }
 
-    public BoardFieldState[] getDiagonalBoardFields() {
+    private BoardFieldState[] getDiagonalBoardFields() {
         BoardFieldState[] diagonalBoardFields = new BoardFieldState[3];
         for (int i = 0; i < 3; i++) {
             diagonalBoardFields[i] = boardFields[i][i];
@@ -54,7 +54,7 @@ public class GameState {
         return diagonalBoardFields;
     }
 
-    public BoardFieldState[] getAntidiagonalBoardFields() {
+    private BoardFieldState[] getAntidiagonalBoardFields() {
         BoardFieldState[] diagonalBoardFields = new BoardFieldState[3];
         for (int i = 0; i < 3; i++) {
             diagonalBoardFields[i] = boardFields[i][2 - i];
