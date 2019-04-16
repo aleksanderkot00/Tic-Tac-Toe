@@ -14,10 +14,10 @@ public class Board extends GridPane {
 
     public Board(GameState gameState) {
         this.gameState = gameState;
-        createBoard();
+        createNewBoard();
     }
 
-    public void createBoard() {
+    public void createNewBoard() {
         while(getChildren().size() > 0){
             getChildren().remove(0);
         }
@@ -30,18 +30,23 @@ public class Board extends GridPane {
                 Field field = new Field();
                 add(field, col, row);
                 field.setOnMouseClicked(d -> {
-                    if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(BoardFieldState.EMPTY)) {
+                    if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(Figure.EMPTY)) {
                         if (gameState.getRoundState().getNumberOfMoves() % 2 == 0) {
                             add(new ImageView(new Image("file:resources/O.png")), colf, rowf);
-                            gameState.getRoundState().getBoardFields()[colf][rowf] = BoardFieldState.O;
+                            gameState.getRoundState().getBoardFields()[colf][rowf] = Figure.O;
                         } else {
                             add(new ImageView(new Image("file:resources/X.png")), colf, rowf);
-                            gameState.getRoundState().getBoardFields()[colf][rowf] = BoardFieldState.X;
+                            gameState.getRoundState().getBoardFields()[colf][rowf] = Figure.X;
                         }
                     }
                     refreshBoard();
-                    if (GameStateVerifier.isRoundOver(gameState)) {
-                        createBoard();
+                    if (gameState.isRoundOver()) {
+                        if (gameState.isGameOver()) {
+                            gameState = new GameState(new Player("dasd", Figure.O),
+                                    new Player("asdasd",Figure.X),
+                                    2);
+                        }
+                        createNewBoard();
                     }
                 });
                 refreshBoard();

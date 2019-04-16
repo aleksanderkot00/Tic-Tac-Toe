@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class AlertBox {
+
     public static void display(String title, String message) {
         Stage window = new Stage();
 
@@ -22,7 +23,7 @@ public class AlertBox {
 
         Label label = new Label();
         label.setText(message);
-        Button closeButton = new Button("New round");
+        Button closeButton = new Button("OK");
         closeButton.setOnAction(e -> window.close());
 
         VBox layot = new VBox(10);

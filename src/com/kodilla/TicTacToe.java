@@ -15,8 +15,10 @@ public class TicTacToe extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Player player1 = new Player("Player1",Figure.O);
+        Player player2 = new Player("Player2",Figure.X);
 
-        Board board = new Board(new GameState("Player1", "Player2"));
+        Board board = new Board(new GameState(player1, player2, 1));
         board.setAlignment(Pos.CENTER);
         Menu menu = new Menu(board);
 

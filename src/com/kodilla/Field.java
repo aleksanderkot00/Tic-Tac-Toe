@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
 public class Field extends Label {
+
     public Field() {
         setAlignment(Pos.CENTER);
         setMinSize(150, 150);

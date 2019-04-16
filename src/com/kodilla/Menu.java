@@ -18,7 +18,7 @@ public class Menu extends HBox {
         Button newGame = new Button("New game");
         newGame.setPrefSize(100, 20);
         newGame.setOnAction(e -> {
-            board.createBoard();
+            board.createNewBoard();
         });
 
         Button saveGame = new Button("Save game");
