@@ -12,26 +12,16 @@ public class Board extends GridPane {
 
     private GameState gameState;
 
-    public Board() {
-        gameState = new GameState();
-        restartBoard();
+    public Board(GameState gameState) {
+        this.gameState = gameState;
+        createBoard();
     }
 
-    public void refreshBoard() {
-        for(int i =0; i < getChildren().size(); i++) {
-            setHalignment(getChildren().get(i), HPos.CENTER);
-            setValignment(getChildren().get(i), VPos.CENTER);
-            if (gameState.isOver()) {
-
-            }
-        }
-    }
-
-    public void restartBoard() {
+    public void createBoard() {
         while(getChildren().size() > 0){
             getChildren().remove(0);
         }
-        gameState.restartGame();
+        gameState.getRoundState().newRound();
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 add(new Rectangle(160, 160, Color.BLACK), col, row);
@@ -40,30 +30,29 @@ public class Board extends GridPane {
                 Field field = new Field();
                 add(field, col, row);
                 field.setOnMouseClicked(d -> {
-                    if (!gameState.isOver() &&
-                            gameState.getBoardFields()[colf][rowf].equals(BoardFieldState.EMPTY)) {
-                        if (gameState.getNumberOfMoves() % 2 == 0) {
+                    if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(BoardFieldState.EMPTY)) {
+                        if (gameState.getRoundState().getNumberOfMoves() % 2 == 0) {
                             add(new ImageView(new Image("file:resources/O.png")), colf, rowf);
-                            gameState.getBoardFields()[colf][rowf] = BoardFieldState.O;
+                            gameState.getRoundState().getBoardFields()[colf][rowf] = BoardFieldState.O;
                         } else {
                             add(new ImageView(new Image("file:resources/X.png")), colf, rowf);
-                            gameState.getBoardFields()[colf][rowf] = BoardFieldState.X;
+                            gameState.getRoundState().getBoardFields()[colf][rowf] = BoardFieldState.X;
                         }
                     }
                     refreshBoard();
-                    if (gameState.hasFigureWon(BoardFieldState.O)) {
-                        AlertBox.display("End of round", "O won this round!");
-                        restartBoard();
-                    } else if (gameState.hasFigureWon(BoardFieldState.X)) {
-                        AlertBox.display("End of round", "X won this round!");
-                        restartBoard();
-                    } else if (gameState.isDraw()) {
-                        AlertBox.display("End of round", "Draw!");
-                        restartBoard();
+                    if (GameStateVerifier.isRoundOver(gameState)) {
+                        createBoard();
                     }
                 });
                 refreshBoard();
             }
+        }
+    }
+
+    public void refreshBoard() {
+        for(int i =0; i < getChildren().size(); i++) {
+            setHalignment(getChildren().get(i), HPos.CENTER);
+            setValignment(getChildren().get(i), VPos.CENTER);
         }
     }
 }

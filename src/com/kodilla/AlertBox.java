@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,6 +17,8 @@ public class AlertBox {
         window.setTitle(title);
         window.setMinWidth(400);
         window.setMinHeight(200);
+        window.setMaxWidth(400);
+        window.setMaxHeight(200);
 
         Label label = new Label();
         label.setText(message);
@@ -28,6 +31,7 @@ public class AlertBox {
 
         Scene scene = new Scene(layot);
         window.setScene(scene);
+        window.getIcons().add(new Image("file:resources/icon.jpg"));
         window.showAndWait();
     }
 }
