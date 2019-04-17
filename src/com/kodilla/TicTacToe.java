@@ -1,5 +1,9 @@
 package com.kodilla;
 
+import com.kodilla.state.GameState;
+import com.kodilla.view.Board;
+import com.kodilla.view.Menu;
+import com.kodilla.window.NewGameWindow;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,8 +20,7 @@ public class TicTacToe extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        GameState gameState = TwoPlayersNewGameWindow.display();
-        gameState.setPlayerTwoComputer();
+        GameState gameState = NewGameWindow.display();
 
         Board board = new Board(gameState);
         board.setAlignment(Pos.CENTER);

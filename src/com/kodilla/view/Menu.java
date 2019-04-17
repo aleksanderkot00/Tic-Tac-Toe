@@ -1,5 +1,7 @@
-package com.kodilla;
+package com.kodilla.view;
 
+import com.kodilla.view.Board;
+import com.kodilla.window.NewGameWindow;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -18,20 +20,20 @@ public class Menu extends HBox {
         Button newGame = new Button("New game");
         newGame.setPrefSize(100, 20);
         newGame.setOnAction(e -> {
-            board.setGameState(TwoPlayersNewGameWindow.display());
-            board.createNewBoard();
+            board.setGameState(NewGameWindow.display());
+            board.createBoard();
         });
 
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
         saveGame.setOnAction(e -> {
-            TwoPlayersNewGameWindow.display();
+            NewGameWindow.display();
         });
 
         Button loadGame = new Button("Load game");
         loadGame.setPrefSize(100, 20);
         loadGame.setOnAction(e -> {
-            OnePlayerNewGameWindow.display();
+
         });
 
         getChildren().addAll(newGame, saveGame,loadGame);

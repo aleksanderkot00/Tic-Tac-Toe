@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.window;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

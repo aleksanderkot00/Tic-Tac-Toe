@@ -1,17 +1,18 @@
-package com.kodilla;
+package com.kodilla.window;
 
+import com.kodilla.state.Figure;
+import com.kodilla.state.GameState;
+import com.kodilla.state.Player;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class TwoPlayersNewGameWindow {
+public class NewGameWindow {
+
     public static GameState display() {
         Stage window = new Stage();
 
@@ -33,7 +34,7 @@ public class TwoPlayersNewGameWindow {
         Label player1FiguresLabel = new Label("Player one initial  figures: ");
         GridPane.setConstraints(player1FiguresLabel,0,1);
 
-        TextField player1NameField = new TextField("name one");
+        TextField player1NameField = new TextField("name");
         GridPane.setConstraints(player1NameField, 1,0);
 
         ChoiceBox<String> figureBox1 = new ChoiceBox<>();
@@ -47,7 +48,7 @@ public class TwoPlayersNewGameWindow {
         Label player2FiguresLabel = new Label("Player two figures: ");
         GridPane.setConstraints(player2FiguresLabel,3,1);
 
-        TextField player2NameField = new TextField("name two");
+        TextField player2NameField = new TextField("computer");
         GridPane.setConstraints(player2NameField, 4,0);
 
         ChoiceBox<String> figureBox2 = new ChoiceBox<>();
@@ -83,16 +84,13 @@ public class TwoPlayersNewGameWindow {
         GridPane.setConstraints(playButton, 2, 5,2,2);
         playButton.setOnAction(e -> window.close());
 
-        Button playWithComputer = new Button("Play with computer");
-        GridPane.setConstraints(playWithComputer, 4, 4,2,2);
-        playWithComputer.setOnAction(e -> {
-            window.close();
-            OnePlayerNewGameWindow.display();
-        });
+        CheckBox isPlayerTwoComputer = new CheckBox("play with computer");
+        isPlayerTwoComputer.setSelected(true);
+        GridPane.setConstraints(isPlayerTwoComputer, 4, 4,2,1);
 
         gridPane.getChildren().addAll(player1NameLabel, player1NameField, player1FiguresLabel, figureBox1,
                 player2NameLabel, player2NameField, player2FiguresLabel, figureBox2,
-                roundsLabel, roundsBox, playButton,playWithComputer);
+                roundsLabel, roundsBox, playButton, isPlayerTwoComputer);
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
@@ -101,10 +99,11 @@ public class TwoPlayersNewGameWindow {
 
         Player player1 = new Player(player1NameField.getText(), Figure.O);
         Player player2 = new Player(player2NameField.getText(), Figure.X);
-        if (figureBox1.getValue().equals(Figure.X)) {
+        if (figureBox1.getValue().equals("X")) {
             player1 = new Player(player1NameField.getText(), Figure.X);
             player2 = new Player(player2NameField.getText(), Figure.O);
         }
-        return new GameState(player1, player2, roundsBox.getValue());
+
+        return new GameState(player1, player2, roundsBox.getValue(), isPlayerTwoComputer.isSelected());
     }
 }

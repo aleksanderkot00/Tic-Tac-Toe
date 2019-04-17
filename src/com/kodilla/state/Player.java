@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.state;
 
 public class Player {
     private String name;

@@ -1,5 +1,9 @@
- package com.kodilla;
+ package com.kodilla.view;
 
+import com.kodilla.state.ComputerMoveGenerator;
+import com.kodilla.state.Figure;
+import com.kodilla.state.GameState;
+import com.kodilla.window.NewGameWindow;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.image.Image;
@@ -15,14 +19,13 @@ public class Board extends GridPane {
 
     public Board(GameState gameState) {
         this.gameState = gameState;
-        createNewBoard();
+        createBoard();
     }
 
-    public void createNewBoard() {
+    public void createBoard() {
         while(getChildren().size() > 0){
             getChildren().remove(0);
         }
-        gameState.getRoundState().newRound();
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 add(new Rectangle(160, 160, Color.BLACK), col, row);
@@ -45,10 +48,11 @@ public class Board extends GridPane {
                     }
                     refreshBoard();
                     if (gameState.isRoundOver()) {
+                        gameState.getRoundState().newRound();
                         if (gameState.isGameOver()) {
-                            gameState = TwoPlayersNewGameWindow.display();
+                            gameState = NewGameWindow.display();
                         }
-                        createNewBoard();
+                        createBoard();
                     }
                 });
             }

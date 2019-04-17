@@ -1,10 +1,14 @@
-package com.kodilla;
+package com.kodilla.state;
 
 import java.util.Arrays;
 
 public class RoundState {
 
     private Figure[][] boardFields = new Figure[3][3];
+
+    public RoundState() {
+        Arrays.stream(boardFields).forEach(a -> Arrays.fill(a, Figure.EMPTY));
+    }
 
     public boolean hasFigureWon(Figure figure) {
         return Arrays.stream(boardFields).

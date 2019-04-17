@@ -1,21 +1,15 @@
- package com.kodilla;
+ package com.kodilla.state;
 
-public class GameState {
+ import com.kodilla.window.AlertBox;
+
+ public class GameState {
 
     private Player playerOne;
     private Player playerTwo;
     private int numberOfDraws;
     private int roundsToWin;
     private RoundState roundState;
-    private boolean isPlayerTwoComputer = false;
-
-    public GameState(Player playerOne, Player playerTwo, int roundsToWin) {
-        this.playerOne = playerOne;
-        this.playerTwo = playerTwo;
-        this.roundsToWin = roundsToWin;
-        numberOfDraws = 0;
-        roundState = new RoundState();
-    }
+    private boolean isPlayerTwoComputer;
 
     public GameState(Player playerOne, Player playerTwo, int roundsToWin, boolean isPlayerTwoComputer) {
         this.playerOne = playerOne;
@@ -91,9 +85,5 @@ public class GameState {
 
     public boolean isPlayerTwoComputer() {
         return isPlayerTwoComputer;
-    }
-
-    public void setPlayerTwoComputer() {
-        isPlayerTwoComputer = true;
     }
 }
