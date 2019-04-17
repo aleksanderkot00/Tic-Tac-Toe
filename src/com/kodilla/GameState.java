@@ -45,10 +45,6 @@ public class GameState {
         playerTwo.figureChange();
     }
 
-    public int getNumberOfDraws() {
-        return numberOfDraws;
-    }
-
     public RoundState getRoundState() {
         return roundState;
     }
@@ -71,13 +67,13 @@ public class GameState {
     }
 
     public boolean isGameOver() {
-        if (playerOne.getRoundsWon() + playerTwo.getRoundsWon() + numberOfDraws < roundsToWin) {
+        if (playerOne.getRoundsWon()  < roundsToWin && playerTwo.getRoundsWon()  < roundsToWin) {
             return false;
         }
-        String winnerName = "No one";
+        String winnerName;
         if (playerOne.getRoundsWon() > playerTwo.getRoundsWon()) {
             winnerName = playerOne.getName();
-        } else if (playerTwo.getRoundsWon() > playerOne.getRoundsWon()) {
+        } else {
             winnerName = playerTwo.getName();
         }
         AlertBox.display("End of game", winnerName + " won this game!");

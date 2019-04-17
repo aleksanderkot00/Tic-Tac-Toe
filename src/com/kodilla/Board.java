@@ -42,9 +42,7 @@ public class Board extends GridPane {
                     refreshBoard();
                     if (gameState.isRoundOver()) {
                         if (gameState.isGameOver()) {
-                            gameState = new GameState(new Player("dasd", Figure.O),
-                                    new Player("asdasd",Figure.X),
-                                    2);
+                            gameState = TwoPlayersNewGameWindow.display();
                         }
                         createNewBoard();
                     }

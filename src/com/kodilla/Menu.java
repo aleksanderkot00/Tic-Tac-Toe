@@ -24,13 +24,13 @@ public class Menu extends HBox {
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
         saveGame.setOnAction(e -> {
-
+            TwoPlayersNewGameWindow.display();
         });
 
         Button loadGame = new Button("Load game");
         loadGame.setPrefSize(100, 20);
         loadGame.setOnAction(e -> {
-
+            OnePlayerNewGameWindow.display();
         });
 
         getChildren().addAll(newGame, saveGame,loadGame);
