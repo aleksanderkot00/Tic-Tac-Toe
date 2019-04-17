@@ -7,12 +7,21 @@ public class GameState {
     private int numberOfDraws;
     private int roundsToWin;
     private RoundState roundState;
-
+    private boolean isPlayerTwoComputer = false;
 
     public GameState(Player playerOne, Player playerTwo, int roundsToWin) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         this.roundsToWin = roundsToWin;
+        numberOfDraws = 0;
+        roundState = new RoundState();
+    }
+
+    public GameState(Player playerOne, Player playerTwo, int roundsToWin, boolean isPlayerTwoComputer) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+        this.roundsToWin = roundsToWin;
+        this.isPlayerTwoComputer = isPlayerTwoComputer;
         numberOfDraws = 0;
         roundState = new RoundState();
     }
@@ -78,5 +87,13 @@ public class GameState {
         }
         AlertBox.display("End of game", winnerName + " won this game!");
         return true;
+    }
+
+    public boolean isPlayerTwoComputer() {
+        return isPlayerTwoComputer;
+    }
+
+    public void setPlayerTwoComputer() {
+        isPlayerTwoComputer = true;
     }
 }

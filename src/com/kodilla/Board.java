@@ -11,6 +11,7 @@ import javafx.scene.shape.Rectangle;
 public class Board extends GridPane {
 
     private GameState gameState;
+    private ComputerMoveGenerator moveGenerator = new ComputerMoveGenerator();
 
     public Board(GameState gameState) {
         this.gameState = gameState;
@@ -29,7 +30,7 @@ public class Board extends GridPane {
                 final int rowf = row;
                 Field field = new Field();
                 add(field, col, row);
-                field.setOnMouseClicked(d -> {
+                field.setOnMouseClicked(e -> {
                     if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(Figure.EMPTY)) {
                         if (gameState.getRoundState().getNumberOfMoves() % 2 == 0) {
                             add(new ImageView(new Image("file:resources/O.png")), colf, rowf);
@@ -37,6 +38,9 @@ public class Board extends GridPane {
                         } else {
                             add(new ImageView(new Image("file:resources/X.png")), colf, rowf);
                             gameState.getRoundState().getBoardFields()[colf][rowf] = Figure.X;
+                        }
+                        if (gameState.isPlayerTwoComputer() && !gameState.getRoundState().isOver()) {
+                            addGeneratedFigure(gameState.getPlayerTwo().getFigure());
                         }
                     }
                     refreshBoard();
@@ -47,15 +51,35 @@ public class Board extends GridPane {
                         createNewBoard();
                     }
                 });
-                refreshBoard();
             }
         }
+        if (gameState.isPlayerTwoComputer() && gameState.getPlayerTwo().getFigure().equals(Figure.O)) {
+            addGeneratedFigure(Figure.O);
+        }
+        refreshBoard();
     }
 
     public void refreshBoard() {
         for(int i =0; i < getChildren().size(); i++) {
             setHalignment(getChildren().get(i), HPos.CENTER);
             setValignment(getChildren().get(i), VPos.CENTER);
+        }
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    private void addGeneratedFigure(Figure figure) {
+        int computerMove = moveGenerator.GenerateMove(gameState.getRoundState());
+        int generatedRow = computerMove / 3;
+        int generatedCol = computerMove % 3;
+        if (figure.equals(Figure.O)) {
+            add(new ImageView(new Image("file:resources/O.png")), generatedCol, generatedRow);
+            gameState.getRoundState().getBoardFields()[generatedCol][generatedRow] = Figure.O;
+        } else {
+            add(new ImageView(new Image("file:resources/X.png")), generatedCol, generatedRow);
+            gameState.getRoundState().getBoardFields()[generatedCol][generatedRow] = Figure.X;
         }
     }
 }
