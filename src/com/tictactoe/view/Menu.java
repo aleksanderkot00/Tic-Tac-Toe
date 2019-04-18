@@ -1,5 +1,6 @@
 package com.tictactoe.view;
 
+import com.tictactoe.window.ConfirmBox;
 import com.tictactoe.window.NewGameWindow;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -26,7 +27,7 @@ public class Menu extends HBox {
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
         saveGame.setOnAction(e -> {
-
+            ConfirmBox.display("chuj", "adasdasd");
         });
 
         Button loadGame = new Button("Load game");

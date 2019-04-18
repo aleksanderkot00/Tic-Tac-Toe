@@ -3,6 +3,7 @@ package com.tictactoe;
 import com.tictactoe.state.GameState;
 import com.tictactoe.view.Board;
 import com.tictactoe.view.Menu;
+import com.tictactoe.window.ConfirmBox;
 import com.tictactoe.window.NewGameWindow;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -36,6 +37,15 @@ public class TicTacToe extends Application {
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("file:resources/icon.jpg"));
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e -> {
+            e.consume();
+            boolean answer = ConfirmBox.display("Close the game",
+                    "Are you sure you want to end the game?");
+            if (answer) {
+                primaryStage.close();
+            }
+
+        });
         primaryStage.setMinWidth(primaryStage.getWidth());
         primaryStage.setMinHeight(primaryStage.getHeight());
     }

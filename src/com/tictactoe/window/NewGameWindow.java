@@ -103,7 +103,6 @@ public class NewGameWindow {
             player1 = new Player(player1NameField.getText(), Figure.X);
             player2 = new Player(player2NameField.getText(), Figure.O);
         }
-
         return new GameState(player1, player2, roundsBox.getValue(), isPlayerTwoComputer.isSelected());
     }
 }

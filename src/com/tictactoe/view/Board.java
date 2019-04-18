@@ -103,7 +103,11 @@ import javafx.scene.text.Font;
         score.setFont(Font.font("Cambria", 40));
 
         Label rounds = new Label();
-        rounds.setText("Round: " + (gameState.getPlayerOne().getRoundsWon() + gameState.getPlayerTwo().getRoundsWon()));
+        rounds.setText("Round: " + (
+                gameState.getPlayerOne().getRoundsWon() +
+                gameState.getPlayerTwo().getRoundsWon() +
+                gameState.getNumberOfDraws()
+        ));
         rounds.setTextFill(Color.RED);
         rounds.setFont(Font.font("Cambria", 20));
 

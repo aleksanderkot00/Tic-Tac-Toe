@@ -6,6 +6,7 @@
 
     private Player playerOne;
     private Player playerTwo;
+    private int numberOfDraws;
     private int roundsToWin;
     private RoundState roundState;
     private boolean isPlayerTwoComputer;
@@ -15,10 +16,12 @@
         this.playerTwo = playerTwo;
         this.roundsToWin = roundsToWin;
         this.isPlayerTwoComputer = isPlayerTwoComputer;
+        numberOfDraws = 0;
         roundState = new RoundState();
     }
 
     public void drawRound() {
+        numberOfDraws++;
         changeOfFigures();
     }
 
@@ -82,6 +85,10 @@
 
      public int getRoundsToWin() {
          return roundsToWin;
+     }
+
+     public int getNumberOfDraws() {
+         return numberOfDraws;
      }
 
      public boolean isPlayerTwoComputer() {
