@@ -25,7 +25,7 @@ public class TicTacToe extends Application {
 
         Board board = new Board(gameState);
         board.setAlignment(Pos.CENTER);
-        Menu menu = new Menu(board);
+        Menu menu = new Menu(board, primaryStage);
 
         BorderPane border = new BorderPane();
         border.setStyle("-fx-background-color: black;");
