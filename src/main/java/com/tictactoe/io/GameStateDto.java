@@ -13,7 +13,7 @@ public class GameStateDto {
     private int numberOfDraws;
     private int roundsToWin;
     private boolean isPlayerTwoComputer;
-    private Figure[] roundState = new Figure[9];
+    private Figure[] roundState;
 
     public GameStateDto(String playerOneName, int playerOneRoundsWon, Figure playerOneFigure,
                         String playerTwoName, int playerTwoRoundsWon, Figure playerTwoFigure,

@@ -1,9 +1,5 @@
 package com.tictactoe.view;
 
-import com.tictactoe.io.GameIO;
-import com.tictactoe.io.GameLoader;
-import com.tictactoe.io.GameStateDto;
-import com.tictactoe.state.Figure;
 import com.tictactoe.window.ConfirmBox;
 import com.tictactoe.window.NewGameWindow;
 import javafx.geometry.Insets;
