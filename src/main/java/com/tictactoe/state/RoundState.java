@@ -12,7 +12,7 @@ public class RoundState {
 
     public RoundState(Figure[] board) {
         for (int i = 0; i < board.length; i++) {
-            boardFields[i / 3][i % 3] = board[i];
+            boardFields[i % 3][i / 3] = board[i];
         }
     }
 

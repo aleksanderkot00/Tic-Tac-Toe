@@ -12,12 +12,7 @@ import java.io.File;
 
 public class Menu extends HBox {
 
-    private Board board;
-    private Stage primaryStage;
-
     public Menu(Board board, Stage primaryStage) {
-        this.board = board;
-        this.primaryStage = primaryStage;
 
         setPadding(new Insets(15, 12, 15, 12));
         setSpacing(10);

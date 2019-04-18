@@ -30,17 +30,17 @@
          this.isPlayerTwoComputer = isPlayerTwoComputer;
      }
 
-     public void drawRound() {
+     private void drawRound() {
         numberOfDraws++;
         changeOfFigures();
     }
 
-    public void playerOneWonRound() {
+    private void playerOneWonRound() {
         playerOne.win();
         changeOfFigures();
     }
 
-    public void playerTwoWonRound() {
+    private void playerTwoWonRound() {
         playerTwo.win();
         changeOfFigures();
     }
@@ -53,7 +53,7 @@
         return playerTwo;
     }
 
-    public void changeOfFigures() {
+    private void changeOfFigures() {
         playerOne.figureChange();
         playerTwo.figureChange();
     }

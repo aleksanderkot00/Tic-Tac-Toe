@@ -1,6 +1,8 @@
 package com.tictactoe.io;
 
 import com.google.gson.*;
+import com.tictactoe.io.dto.GameStateDto;
+import com.tictactoe.io.mapper.GameStateMapper;
 import com.tictactoe.state.GameState;
 
 public class GameLoader implements GameIO {
@@ -10,7 +12,7 @@ public class GameLoader implements GameIO {
 
     @Override
     public GameState load(String json) {
-        return mapper.mapToGameState(gson.fromJson(json,GameStateDto.class));
+        return mapper.mapToGameState(gson.fromJson(json, GameStateDto.class));
     }
 
     @Override

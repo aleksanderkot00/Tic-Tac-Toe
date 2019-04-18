@@ -9,11 +9,7 @@ import javafx.scene.image.ImageView;
 
 public class Field extends Label {
 
-    private Board board;
-
     public Field(Board board, int col, int row) {
-        this.board = board;
-
         setAlignment(Pos.CENTER);
         setMinSize(150, 150);
         setMaxSize(150, 150);

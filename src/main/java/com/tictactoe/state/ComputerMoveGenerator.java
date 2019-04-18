@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class ComputerMoveGenerator {
 
-    public int generateMove(RoundState roundState) {
+    private int generateMove(RoundState roundState) {
         int emptyFieldsNumber = 9 - roundState.getNumberOfMoves();
         int[] emptyFieldsIndex = new int[emptyFieldsNumber];
         int i = 0;
