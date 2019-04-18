@@ -40,10 +40,10 @@ import javafx.scene.text.Font;
                 field.setOnMouseClicked(e -> {
                     if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(Figure.EMPTY)) {
                         if (gameState.getRoundState().getNumberOfMoves() % 2 == 0) {
-                            add(new ImageView(new Image("file:resources/O.png")), colf, rowf);
+                            add(new ImageView(new Image("file:src/main/resources/O.png")), colf, rowf);
                             gameState.getRoundState().getBoardFields()[colf][rowf] = Figure.O;
                         } else {
-                            add(new ImageView(new Image("file:resources/X.png")), colf, rowf);
+                            add(new ImageView(new Image("file:src/main/resources/X.png")), colf, rowf);
                             gameState.getRoundState().getBoardFields()[colf][rowf] = Figure.X;
                         }
                         if (gameState.isPlayerTwoComputer() && !gameState.getRoundState().isOver()) {
@@ -84,10 +84,10 @@ import javafx.scene.text.Font;
         int generatedRow = computerMove / 3;
         int generatedCol = computerMove % 3;
         if (figure.equals(Figure.O)) {
-            add(new ImageView(new Image("file:resources/O.png")), generatedCol, generatedRow);
+            add(new ImageView(new Image("file:src/main/resources/O.png")), generatedCol, generatedRow);
             gameState.getRoundState().getBoardFields()[generatedCol][generatedRow] = Figure.O;
         } else {
-            add(new ImageView(new Image("file:resources/X.png")), generatedCol, generatedRow);
+            add(new ImageView(new Image("file:src/main/resources/X.png")), generatedCol, generatedRow);
             gameState.getRoundState().getBoardFields()[generatedCol][generatedRow] = Figure.X;
         }
     }

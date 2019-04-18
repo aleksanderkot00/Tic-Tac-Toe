@@ -49,7 +49,7 @@ public class ConfirmBox {
 
         Scene scene = new Scene(layot);
         window.setScene(scene);
-        window.getIcons().add(new Image("file:resources/icon.jpg"));
+        window.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
         window.showAndWait();
 
         return answer;

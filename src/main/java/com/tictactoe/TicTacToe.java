@@ -35,7 +35,7 @@ public class TicTacToe extends Application {
         Scene scene = new Scene(border, 800, 650);
         primaryStage.setTitle("Tic-Tac-Toe");
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("file:resources/icon.jpg"));
+        primaryStage.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
         primaryStage.show();
         primaryStage.setOnCloseRequest(e -> {
             e.consume();

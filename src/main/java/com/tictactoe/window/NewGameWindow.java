@@ -94,7 +94,7 @@ public class NewGameWindow {
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
-        window.getIcons().add(new Image("file:resources/icon.jpg"));
+        window.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
         window.showAndWait();
 
         Player player1 = new Player(player1NameField.getText(), Figure.O);
