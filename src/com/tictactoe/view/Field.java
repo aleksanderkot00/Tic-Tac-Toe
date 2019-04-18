@@ -1,4 +1,4 @@
-package com.kodilla.view;
+package com.tictactoe.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

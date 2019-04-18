@@ -1,8 +1,8 @@
-package com.kodilla.window;
+package com.tictactoe.window;
 
-import com.kodilla.state.Figure;
-import com.kodilla.state.GameState;
-import com.kodilla.state.Player;
+import com.tictactoe.state.Figure;
+import com.tictactoe.state.GameState;
+import com.tictactoe.state.Player;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -31,7 +31,7 @@ public class NewGameWindow {
         Label player1NameLabel = new Label("Player one name: ");
         GridPane.setConstraints(player1NameLabel,0,0);
 
-        Label player1FiguresLabel = new Label("Player one initial  figures: ");
+        Label player1FiguresLabel = new Label("Player one initial figures: ");
         GridPane.setConstraints(player1FiguresLabel,0,1);
 
         TextField player1NameField = new TextField("name");
@@ -45,7 +45,7 @@ public class NewGameWindow {
         Label player2NameLabel = new Label("Player two name: ");
         GridPane.setConstraints(player2NameLabel,3,0);
 
-        Label player2FiguresLabel = new Label("Player two figures: ");
+        Label player2FiguresLabel = new Label("Player two initial figures: ");
         GridPane.setConstraints(player2FiguresLabel,3,1);
 
         TextField player2NameField = new TextField("computer");
@@ -72,7 +72,7 @@ public class NewGameWindow {
         }
         });
 
-        Label roundsLabel = new Label("Number of rounds to win the game: ");
+        Label roundsLabel = new Label("Number of rounds to win: ");
         GridPane.setConstraints(roundsLabel,1,4,2,1);
 
         ChoiceBox<Integer> roundsBox = new ChoiceBox<>();

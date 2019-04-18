@@ -1,18 +1,22 @@
- package com.kodilla.view;
+ package com.tictactoe.view;
 
-import com.kodilla.state.ComputerMoveGenerator;
-import com.kodilla.state.Figure;
-import com.kodilla.state.GameState;
-import com.kodilla.window.NewGameWindow;
+import com.tictactoe.state.ComputerMoveGenerator;
+import com.tictactoe.state.Figure;
+import com.tictactoe.state.GameState;
+import com.tictactoe.window.NewGameWindow;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
-public class Board extends GridPane {
+ public class Board extends GridPane {
 
     private GameState gameState;
     private ComputerMoveGenerator moveGenerator = new ComputerMoveGenerator();
@@ -60,6 +64,7 @@ public class Board extends GridPane {
         if (gameState.isPlayerTwoComputer() && gameState.getPlayerTwo().getFigure().equals(Figure.O)) {
             addGeneratedFigure(Figure.O);
         }
+        add(displayResult(), 3,0,1,2);
         refreshBoard();
     }
 
@@ -86,4 +91,41 @@ public class Board extends GridPane {
             gameState.getRoundState().getBoardFields()[generatedCol][generatedRow] = Figure.X;
         }
     }
+
+    public VBox displayResult() {
+
+        VBox resultDisplay = new VBox();
+        resultDisplay.setAlignment(Pos.CENTER);
+
+        Label score = new Label();
+        score.setText("Score:");
+        score.setTextFill(Color.RED);
+        score.setFont(Font.font("Cambria", 40));
+
+        Label rounds = new Label();
+        rounds.setText("Round: " + (gameState.getPlayerOne().getRoundsWon() + gameState.getPlayerTwo().getRoundsWon()));
+        rounds.setTextFill(Color.RED);
+        rounds.setFont(Font.font("Cambria", 20));
+
+        Label player1Rounds = new Label();
+        player1Rounds.setText(gameState.getPlayerOne().getName() + " won rounds: " +
+                gameState.getPlayerOne().getRoundsWon());
+        player1Rounds.setTextFill(Color.RED);
+        player1Rounds.setFont(Font.font("Cambria", 20));
+
+        Label player2Rounds = new Label();
+        player2Rounds.setText(gameState.getPlayerTwo().getName() + " won rounds: " +
+                gameState.getPlayerTwo().getRoundsWon());
+        player2Rounds.setTextFill(Color.RED);
+        player2Rounds.setFont(Font.font("Cambria", 20));
+
+        Label roundsToWin = new Label();
+        roundsToWin.setText("Rounds needed to win: " + gameState.getRoundsToWin());
+        roundsToWin.setTextFill(Color.RED);
+        roundsToWin.setFont(Font.font("Cambria", 20));
+
+        resultDisplay.getChildren().addAll(score, rounds, player1Rounds, player2Rounds, roundsToWin);
+        return resultDisplay;
+    }
+
 }

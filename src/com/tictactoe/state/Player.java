@@ -1,4 +1,4 @@
-package com.kodilla.state;
+package com.tictactoe.state;
 
 public class Player {
     private String name;

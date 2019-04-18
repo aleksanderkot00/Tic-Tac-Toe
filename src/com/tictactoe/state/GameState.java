@@ -1,12 +1,11 @@
- package com.kodilla.state;
+ package com.tictactoe.state;
 
- import com.kodilla.window.AlertBox;
+ import com.tictactoe.window.AlertBox;
 
  public class GameState {
 
     private Player playerOne;
     private Player playerTwo;
-    private int numberOfDraws;
     private int roundsToWin;
     private RoundState roundState;
     private boolean isPlayerTwoComputer;
@@ -16,12 +15,10 @@
         this.playerTwo = playerTwo;
         this.roundsToWin = roundsToWin;
         this.isPlayerTwoComputer = isPlayerTwoComputer;
-        numberOfDraws = 0;
         roundState = new RoundState();
     }
 
     public void drawRound() {
-        numberOfDraws++;
         changeOfFigures();
     }
 
@@ -83,7 +80,11 @@
         return true;
     }
 
-    public boolean isPlayerTwoComputer() {
+     public int getRoundsToWin() {
+         return roundsToWin;
+     }
+
+     public boolean isPlayerTwoComputer() {
         return isPlayerTwoComputer;
     }
 }

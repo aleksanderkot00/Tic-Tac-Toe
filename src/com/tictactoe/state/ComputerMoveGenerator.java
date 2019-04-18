@@ -1,4 +1,4 @@
-package com.kodilla.state;
+package com.tictactoe.state;
 
 import java.util.Random;
 

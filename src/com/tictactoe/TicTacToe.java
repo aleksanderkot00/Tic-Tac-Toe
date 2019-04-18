@@ -1,9 +1,9 @@
-package com.kodilla;
+package com.tictactoe;
 
-import com.kodilla.state.GameState;
-import com.kodilla.view.Board;
-import com.kodilla.view.Menu;
-import com.kodilla.window.NewGameWindow;
+import com.tictactoe.state.GameState;
+import com.tictactoe.view.Board;
+import com.tictactoe.view.Menu;
+import com.tictactoe.window.NewGameWindow;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -31,7 +31,7 @@ public class TicTacToe extends Application {
         border.setCenter(board);
         border.setTop(menu);
 
-        Scene scene = new Scene(border, 600, 650);
+        Scene scene = new Scene(border, 800, 650);
         primaryStage.setTitle("Tic-Tac-Toe");
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("file:resources/icon.jpg"));

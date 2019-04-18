@@ -1,4 +1,4 @@
-package com.kodilla.window;
+package com.tictactoe.window;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

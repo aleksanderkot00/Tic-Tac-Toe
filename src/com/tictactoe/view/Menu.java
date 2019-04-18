@@ -1,7 +1,6 @@
-package com.kodilla.view;
+package com.tictactoe.view;
 
-import com.kodilla.view.Board;
-import com.kodilla.window.NewGameWindow;
+import com.tictactoe.window.NewGameWindow;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -27,7 +26,7 @@ public class Menu extends HBox {
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
         saveGame.setOnAction(e -> {
-            NewGameWindow.display();
+
         });
 
         Button loadGame = new Button("Load game");
@@ -36,6 +35,6 @@ public class Menu extends HBox {
 
         });
 
-        getChildren().addAll(newGame, saveGame,loadGame);
+        getChildren().addAll(newGame, saveGame, loadGame);
     }
 }
