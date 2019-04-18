@@ -10,6 +10,12 @@ public class RoundState {
         Arrays.stream(boardFields).forEach(a -> Arrays.fill(a, Figure.EMPTY));
     }
 
+    public RoundState(Figure[] board) {
+        for (int i = 0; i < board.length; i++) {
+            boardFields[i / 3][i % 3] = board[i];
+        }
+    }
+
     public boolean hasFigureWon(Figure figure) {
         return Arrays.stream(boardFields).
                 filter(row -> Arrays.stream(row).filter(field -> field.equals(figure)).

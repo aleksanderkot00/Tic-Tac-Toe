@@ -1,5 +1,8 @@
  package com.tictactoe.view;
 
+import com.tictactoe.io.GameIO;
+import com.tictactoe.io.GameLoader;
+import com.tictactoe.io.Helper;
 import com.tictactoe.state.ComputerMoveGenerator;
 import com.tictactoe.state.Figure;
 import com.tictactoe.state.GameState;
@@ -16,10 +19,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
+import java.io.File;
+
  public class Board extends GridPane {
 
     private GameState gameState;
     private ComputerMoveGenerator moveGenerator = new ComputerMoveGenerator();
+    private GameIO gameIO = new GameLoader();
 
     public Board(GameState gameState) {
         this.gameState = gameState;
@@ -37,6 +43,11 @@ import javafx.scene.text.Font;
                 final int rowf = row;
                 Field field = new Field();
                 add(field, col, row);
+                if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.O)) {
+                    add(new ImageView(new Image("file:src/main/resources/O.png")), col, row);
+                } else if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.X)) {
+                    add(new ImageView(new Image("file:src/main/resources/X.png")), col, row);
+                }
                 field.setOnMouseClicked(e -> {
                     if (gameState.getRoundState().getBoardFields()[colf][rowf].equals(Figure.EMPTY)) {
                         if (gameState.getRoundState().getNumberOfMoves() % 2 == 0) {
@@ -132,4 +143,14 @@ import javafx.scene.text.Font;
         return resultDisplay;
     }
 
+    public void save(File file) {
+        String s = gameIO.save(gameState);
+        Helper.saveStringToFile(s, file);
+    }
+
+    public void load(File file) {
+        String s = Helper.loadStringFromFile(file);;
+        this.gameState = gameIO.load(s);
+        createBoard();
+    }
 }

@@ -1,5 +1,9 @@
 package com.tictactoe.view;
 
+import com.tictactoe.io.GameIO;
+import com.tictactoe.io.GameLoader;
+import com.tictactoe.io.GameStateDto;
+import com.tictactoe.state.Figure;
 import com.tictactoe.window.ConfirmBox;
 import com.tictactoe.window.NewGameWindow;
 import javafx.geometry.Insets;
@@ -39,7 +43,7 @@ public class Menu extends HBox {
         saveGame.setOnAction(e -> {
             File file = createFileChooser().showSaveDialog(primaryStage);
             if (file != null) {
-
+                board.save(file);
             }
         });
 
@@ -48,7 +52,7 @@ public class Menu extends HBox {
         loadGame.setOnAction(e -> {
             File file = createFileChooser().showOpenDialog(primaryStage);
             if (file != null) {
-
+                board.load(file);
             }
         });
 

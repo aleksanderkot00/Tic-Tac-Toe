@@ -11,6 +11,12 @@ public class Player {
         this.figure = figure;
     }
 
+    public Player(String name, int roundsWon, Figure figure) {
+        this.name = name;
+        this.roundsWon = roundsWon;
+        this.figure = figure;
+    }
+
     public void figureChange() {
         if (figure.equals(Figure.X)) {
             figure = Figure.O;

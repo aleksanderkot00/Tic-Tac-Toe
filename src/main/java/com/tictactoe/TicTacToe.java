@@ -44,7 +44,6 @@ public class TicTacToe extends Application {
             if (answer) {
                 primaryStage.close();
             }
-
         });
         primaryStage.setMinWidth(primaryStage.getWidth());
         primaryStage.setMinHeight(primaryStage.getHeight());

@@ -20,7 +20,17 @@
         roundState = new RoundState();
     }
 
-    public void drawRound() {
+     public GameState(Player playerOne, Player playerTwo, int numberOfDraws, int roundsToWin,
+                      RoundState roundState, boolean isPlayerTwoComputer) {
+         this.playerOne = playerOne;
+         this.playerTwo = playerTwo;
+         this.numberOfDraws = numberOfDraws;
+         this.roundsToWin = roundsToWin;
+         this.roundState = roundState;
+         this.isPlayerTwoComputer = isPlayerTwoComputer;
+     }
+
+     public void drawRound() {
         numberOfDraws++;
         changeOfFigures();
     }
