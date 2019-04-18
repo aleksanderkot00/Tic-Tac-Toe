@@ -40,7 +40,8 @@ import java.io.File;
                 }
             }
         }
-        if (gameState.isPlayerTwoComputer() && gameState.getPlayerTwo().getFigure().equals(Figure.O)) {
+        if (gameState.isPlayerTwoComputer() && gameState.getPlayerTwo().getFigure().equals(Figure.O) &&
+                getGameState().getRoundState().getNumberOfMoves() == 0) {
             moveGenerator.addGeneratedFigure(this);
         }
         add(ResultDisplay.display(gameState), 3,0,1,2);
