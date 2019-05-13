@@ -1,6 +1,6 @@
-package com.tictactoe.io.dto;
+package com.github.aleksanderkot00.tictactoe.io.dto;
 
-import com.tictactoe.state.Figure;
+import com.github.aleksanderkot00.tictactoe.state.Figure;
 
 public class GameStateDto {
 

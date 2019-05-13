@@ -1,11 +1,11 @@
- package com.tictactoe.view;
+ package com.github.aleksanderkot00.tictactoe.view;
 
-import com.tictactoe.io.GameIO;
-import com.tictactoe.io.GameLoader;
-import com.tictactoe.io.Helper;
-import com.tictactoe.state.ComputerMoveGenerator;
-import com.tictactoe.state.Figure;
-import com.tictactoe.state.GameState;
+import com.github.aleksanderkot00.tictactoe.io.GameLoader;
+import com.github.aleksanderkot00.tictactoe.io.Helper;
+import com.github.aleksanderkot00.tictactoe.state.ComputerMoveGenerator;
+import com.github.aleksanderkot00.tictactoe.state.Figure;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
+import com.github.aleksanderkot00.tictactoe.io.GameIO;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.image.Image;

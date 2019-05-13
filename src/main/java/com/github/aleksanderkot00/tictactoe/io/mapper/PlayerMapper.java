@@ -1,7 +1,7 @@
-package com.tictactoe.io.mapper;
+package com.github.aleksanderkot00.tictactoe.io.mapper;
 
-import com.tictactoe.io.dto.PlayerDto;
-import com.tictactoe.state.Player;
+import com.github.aleksanderkot00.tictactoe.io.dto.PlayerDto;
+import com.github.aleksanderkot00.tictactoe.state.Player;
 
 public class PlayerMapper {
     public Player mapToPlayer(PlayerDto playerDto) {

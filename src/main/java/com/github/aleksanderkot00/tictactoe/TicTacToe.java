@@ -1,10 +1,10 @@
-package com.tictactoe;
+package com.github.aleksanderkot00.tictactoe;
 
-import com.tictactoe.state.GameState;
-import com.tictactoe.view.Board;
-import com.tictactoe.view.Menu;
-import com.tictactoe.window.ConfirmBox;
-import com.tictactoe.window.NewGameWindow;
+import com.github.aleksanderkot00.tictactoe.window.NewGameWindow;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
+import com.github.aleksanderkot00.tictactoe.view.Board;
+import com.github.aleksanderkot00.tictactoe.view.Menu;
+import com.github.aleksanderkot00.tictactoe.window.ConfirmBox;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

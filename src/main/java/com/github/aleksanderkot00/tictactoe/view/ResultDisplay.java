@@ -1,6 +1,6 @@
-package com.tictactoe.view;
+package com.github.aleksanderkot00.tictactoe.view;
 
-import com.tictactoe.state.GameState;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

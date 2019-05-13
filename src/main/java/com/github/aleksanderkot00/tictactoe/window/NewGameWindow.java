@@ -1,8 +1,8 @@
-package com.tictactoe.window;
+package com.github.aleksanderkot00.tictactoe.window;
 
-import com.tictactoe.state.Figure;
-import com.tictactoe.state.GameState;
-import com.tictactoe.state.Player;
+import com.github.aleksanderkot00.tictactoe.state.Player;
+import com.github.aleksanderkot00.tictactoe.state.Figure;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;

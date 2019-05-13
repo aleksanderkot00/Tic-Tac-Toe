@@ -1,11 +1,11 @@
-package com.tictactoe.io.mapper;
+package com.github.aleksanderkot00.tictactoe.io.mapper;
 
-import com.tictactoe.io.dto.GameStateDto;
-import com.tictactoe.io.dto.PlayerDto;
-import com.tictactoe.state.Figure;
-import com.tictactoe.state.GameState;
-import com.tictactoe.state.Player;
-import com.tictactoe.state.RoundState;
+import com.github.aleksanderkot00.tictactoe.io.dto.PlayerDto;
+import com.github.aleksanderkot00.tictactoe.state.Figure;
+import com.github.aleksanderkot00.tictactoe.state.Player;
+import com.github.aleksanderkot00.tictactoe.state.RoundState;
+import com.github.aleksanderkot00.tictactoe.io.dto.GameStateDto;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
 
 public class GameStateMapper {
 

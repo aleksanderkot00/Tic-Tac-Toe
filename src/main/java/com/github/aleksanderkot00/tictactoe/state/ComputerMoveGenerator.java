@@ -1,6 +1,6 @@
-package com.tictactoe.state;
+package com.github.aleksanderkot00.tictactoe.state;
 
-import com.tictactoe.view.Board;
+import com.github.aleksanderkot00.tictactoe.view.Board;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.tictactoe'
+group 'com.github.aleksanderkot00.tic-tac-toe'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8

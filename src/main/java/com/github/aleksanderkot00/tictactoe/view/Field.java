@@ -1,7 +1,7 @@
-package com.tictactoe.view;
+package com.github.aleksanderkot00.tictactoe.view;
 
-import com.tictactoe.state.Figure;
-import com.tictactoe.window.NewGameWindow;
+import com.github.aleksanderkot00.tictactoe.state.Figure;
+import com.github.aleksanderkot00.tictactoe.window.NewGameWindow;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

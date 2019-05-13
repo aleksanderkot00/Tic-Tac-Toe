@@ -1,6 +1,6 @@
- package com.tictactoe.state;
+ package com.github.aleksanderkot00.tictactoe.state;
 
- import com.tictactoe.window.AlertBox;
+ import com.github.aleksanderkot00.tictactoe.window.AlertBox;
 
  public class GameState {
 

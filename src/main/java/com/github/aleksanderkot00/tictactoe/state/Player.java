@@ -1,4 +1,4 @@
-package com.tictactoe.state;
+package com.github.aleksanderkot00.tictactoe.state;
 
 public class Player {
     private String name;

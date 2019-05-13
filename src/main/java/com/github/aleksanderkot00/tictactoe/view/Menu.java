@@ -1,7 +1,7 @@
-package com.tictactoe.view;
+package com.github.aleksanderkot00.tictactoe.view;
 
-import com.tictactoe.window.ConfirmBox;
-import com.tictactoe.window.NewGameWindow;
+import com.github.aleksanderkot00.tictactoe.window.NewGameWindow;
+import com.github.aleksanderkot00.tictactoe.window.ConfirmBox;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;

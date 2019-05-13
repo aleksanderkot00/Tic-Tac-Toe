@@ -1,9 +1,9 @@
-package com.tictactoe.io;
+package com.github.aleksanderkot00.tictactoe.io;
 
+import com.github.aleksanderkot00.tictactoe.io.dto.GameStateDto;
+import com.github.aleksanderkot00.tictactoe.io.mapper.GameStateMapper;
+import com.github.aleksanderkot00.tictactoe.state.GameState;
 import com.google.gson.*;
-import com.tictactoe.io.dto.GameStateDto;
-import com.tictactoe.io.mapper.GameStateMapper;
-import com.tictactoe.state.GameState;
 
 public class GameLoader implements GameIO {
 

@@ -1,4 +1,4 @@
-package com.tictactoe.io;
+package com.github.aleksanderkot00.tictactoe.io;
 
 import java.io.File;
 import java.io.IOException;
