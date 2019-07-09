@@ -1,12 +1,12 @@
- package com.github.aleksanderkot00.tictactoe.view;
+package com.github.aleksanderkot00.tictactoe.view;
 
 import com.github.aleksanderkot00.tictactoe.io.GameLoader;
 import com.github.aleksanderkot00.tictactoe.io.Helper;
 import com.github.aleksanderkot00.tictactoe.state.ComputerMoveGenerator;
-import com.github.aleksanderkot00.tictactoe.state.RandomMoveGenerator;
 import com.github.aleksanderkot00.tictactoe.state.Figure;
 import com.github.aleksanderkot00.tictactoe.state.GameState;
 import com.github.aleksanderkot00.tictactoe.io.GameIO;
+import com.github.aleksanderkot00.tictactoe.state.RandomMoveGenerator;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.image.Image;
@@ -17,11 +17,13 @@ import javafx.scene.shape.Rectangle;
 
 import java.io.File;
 
- public class Board extends GridPane {
+public class Board extends GridPane {
 
+    private static final ImageView O_VIEW = new ImageView(new Image("file:src/main/resources/O.png"));
+    private static final ImageView X_VIEW = new ImageView(new Image("file:src/main/resources/O.png"));
     private GameState gameState;
-    private ComputerMoveGenerator moveGenerator = new RandomMoveGenerator();
-    private GameIO gameIO = new GameLoader();
+    private final ComputerMoveGenerator moveGenerator = new RandomMoveGenerator();
+    private final GameIO gameIO = new GameLoader();
 
     public Board(GameState gameState) {
         this.gameState = gameState;
@@ -35,9 +37,9 @@ import java.io.File;
                 add(new Rectangle(160, 160, Color.BLACK), col, row);
                 add(new Field(this, col, row), col, row);
                 if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.O)) {
-                    add(new ImageView(new Image("file:src/main/resources/O.png")), col, row);
+                    add(O_VIEW, col, row);
                 } else if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.X)) {
-                    add(new ImageView(new Image("file:src/main/resources/X.png")), col, row);
+                    add(X_VIEW, col, row);
                 }
             }
         }
@@ -45,42 +47,42 @@ import java.io.File;
                 getGameState().getRoundState().getNumberOfMoves() == 0) {
             moveGenerator.addGeneratedFigure(this);
         }
-        add(ResultDisplay.display(gameState), 3,0,1,2);
+        add(ResultDisplay.display(gameState), 3, 0, 1, 2);
         refreshBoard();
     }
 
     public void refreshBoard() {
-        for(int i =0; i < getChildren().size(); i++) {
+        for (int i = 0; i < getChildren().size(); i++) {
             setHalignment(getChildren().get(i), HPos.CENTER);
             setValignment(getChildren().get(i), VPos.CENTER);
         }
     }
 
-     private void clean() {
-         while(getChildren().size() > 0){
-             getChildren().remove(0);
-         }
-     }
+    private void clean() {
+        while (getChildren().size() > 0) {
+            getChildren().remove(0);
+        }
+    }
 
-     public GameState getGameState() {
-         return gameState;
-     }
+    public GameState getGameState() {
+        return gameState;
+    }
 
-     public void setGameState(GameState gameState) {
+    public void setGameState(GameState gameState) {
         this.gameState = gameState;
     }
 
-     public ComputerMoveGenerator getMoveGenerator() {
-         return moveGenerator;
-     }
+    public ComputerMoveGenerator getMoveGenerator() {
+        return moveGenerator;
+    }
 
-     public void save(File file) {
+    public void save(File file) {
         String s = gameIO.save(gameState);
         Helper.saveStringToFile(s, file);
     }
 
     public void load(File file) {
-        String s = Helper.loadStringFromFile(file);;
+        String s = Helper.loadStringFromFile(file);
         this.gameState = gameIO.load(s);
         createBoard();
     }
