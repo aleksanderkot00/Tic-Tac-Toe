@@ -3,6 +3,7 @@
 import com.github.aleksanderkot00.tictactoe.io.GameLoader;
 import com.github.aleksanderkot00.tictactoe.io.Helper;
 import com.github.aleksanderkot00.tictactoe.state.ComputerMoveGenerator;
+import com.github.aleksanderkot00.tictactoe.state.RandomMoveGenerator;
 import com.github.aleksanderkot00.tictactoe.state.Figure;
 import com.github.aleksanderkot00.tictactoe.state.GameState;
 import com.github.aleksanderkot00.tictactoe.io.GameIO;
@@ -19,7 +20,7 @@ import java.io.File;
  public class Board extends GridPane {
 
     private GameState gameState;
-    private ComputerMoveGenerator moveGenerator = new ComputerMoveGenerator();
+    private ComputerMoveGenerator moveGenerator = new RandomMoveGenerator();
     private GameIO gameIO = new GameLoader();
 
     public Board(GameState gameState) {
