@@ -9,8 +9,6 @@ import com.github.aleksanderkot00.tictactoe.io.GameIO;
 import com.github.aleksanderkot00.tictactoe.state.RandomMoveGenerator;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -19,8 +17,6 @@ import java.io.File;
 
 public class Board extends GridPane {
 
-    private static final ImageView O_VIEW = new ImageView(new Image("file:src/main/resources/O.png"));
-    private static final ImageView X_VIEW = new ImageView(new Image("file:src/main/resources/O.png"));
     private GameState gameState;
     private final ComputerMoveGenerator moveGenerator = new RandomMoveGenerator();
     private final GameIO gameIO = new GameLoader();
@@ -36,15 +32,11 @@ public class Board extends GridPane {
             for (int col = 0; col < 3; col++) {
                 add(new Rectangle(160, 160, Color.BLACK), col, row);
                 add(new Field(this, col, row), col, row);
-                if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.O)) {
-                    add(O_VIEW, col, row);
-                } else if (gameState.getRoundState().getBoardFields()[col][row].equals(Figure.X)) {
-                    add(X_VIEW, col, row);
-                }
             }
         }
-        if (gameState.isPlayerTwoComputer() && gameState.getPlayerTwo().getFigure().equals(Figure.O) &&
-                getGameState().getRoundState().getNumberOfMoves() == 0) {
+        if (gameState.isPlayerTwoComputer()
+                && gameState.getPlayerTwo().getFigure().equals(Figure.O)
+                && getGameState().getRoundState().getNumberOfMoves() == 0) {
             moveGenerator.addGeneratedFigure(this);
         }
         add(ResultDisplay.display(gameState), 3, 0, 1, 2);

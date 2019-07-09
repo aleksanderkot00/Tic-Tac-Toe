@@ -9,6 +9,9 @@ import javafx.scene.image.ImageView;
 
 public class Field extends Label {
 
+    public static final Image O_VIEW = new Image("file:src/main/resources/O.png");
+    public static final Image X_VIEW = new Image("file:src/main/resources/X.png");
+
     public Field(Board board, int col, int row) {
         setAlignment(Pos.CENTER);
         setMinSize(150, 150);
@@ -17,10 +20,10 @@ public class Field extends Label {
         setOnMouseClicked(e -> {
             if (board.getGameState().getRoundState().getBoardFields()[col][row].equals(Figure.EMPTY)) {
                 if (board.getGameState().getRoundState().getNumberOfMoves() % 2 == 0) {
-                    board.add(new ImageView(new Image("file:src/main/resources/O.png")), col, row);
+                    board.add(new ImageView(O_VIEW), col, row);
                     board.getGameState().getRoundState().getBoardFields()[col][row] = Figure.O;
                 } else {
-                    board.add(new ImageView(new Image("file:src/main/resources/X.png")), col, row);
+                    board.add(new ImageView(X_VIEW), col, row);
                     board.getGameState().getRoundState().getBoardFields()[col][row] = Figure.X;
                 }
                 if (board.getGameState().isPlayerTwoComputer() && !board.getGameState().getRoundState().isOver()) {
