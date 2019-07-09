@@ -10,9 +10,16 @@ both the computer and the second player.
 - JavaFX
 
 ## 3. DEMO
+
 ![](demo/tic-tac-toe_1.png)
+
+
 ![](demo/tic-tac-toe_2.png)
+
+
 ![](demo/tic-tac-toe_3.png)
+
+
 ![](demo/tic-tac-toe_4.png)
 
 ## 4. FUTURE PLANS
