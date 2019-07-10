@@ -3,10 +3,10 @@ package com.github.aleksanderkot00.tictactoe.view;
 import com.github.aleksanderkot00.tictactoe.io.GameLoader;
 import com.github.aleksanderkot00.tictactoe.io.Helper;
 import com.github.aleksanderkot00.tictactoe.state.ComputerMoveGenerator;
-import com.github.aleksanderkot00.tictactoe.state.Figure;
 import com.github.aleksanderkot00.tictactoe.state.GameState;
 import com.github.aleksanderkot00.tictactoe.io.GameIO;
 import com.github.aleksanderkot00.tictactoe.state.RandomMoveGenerator;
+import com.github.aleksanderkot00.tictactoe.window.NewGameWindow;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.layout.GridPane;
@@ -34,11 +34,6 @@ public class Board extends GridPane {
                 add(new Field(this, col, row), col, row);
             }
         }
-        if (gameState.isPlayerTwoComputer()
-                && gameState.getPlayerTwo().getFigure().equals(Figure.O)
-                && getGameState().getRoundState().getNumberOfMoves() == 0) {
-            moveGenerator.addGeneratedFigure(this);
-        }
         add(ResultDisplay.display(gameState), 3, 0, 1, 2);
         refreshBoard();
     }
@@ -53,6 +48,16 @@ public class Board extends GridPane {
     private void clean() {
         while (getChildren().size() > 0) {
             getChildren().remove(0);
+        }
+    }
+
+    public void checkState() {
+        if (getGameState().isRoundOver()) {
+            getGameState().getRoundState().newRound();
+            if (getGameState().isGameOver()) {
+                setGameState(NewGameWindow.display());
+            }
+            createBoard();
         }
     }
 

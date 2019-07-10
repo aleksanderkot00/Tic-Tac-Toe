@@ -4,17 +4,13 @@ public class Player {
     private String name;
     private int roundsWon;
     private Figure figure;
+    private boolean computer;
 
-    public Player(String name, Figure figure) {
-        this.name = name;
-        roundsWon = 0;
-        this.figure = figure;
-    }
-
-    public Player(String name, int roundsWon, Figure figure) {
+    public Player(String name, int roundsWon, Figure figure, boolean computer) {
         this.name = name;
         this.roundsWon = roundsWon;
         this.figure = figure;
+        this.computer = computer;
     }
 
     public void figureChange() {
@@ -39,5 +35,9 @@ public class Player {
 
     public Figure getFigure() {
         return figure;
+    }
+
+    public boolean isComputer() {
+        return computer;
     }
 }

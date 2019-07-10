@@ -84,25 +84,30 @@ public class NewGameWindow {
         GridPane.setConstraints(playButton, 2, 5,2,2);
         playButton.setOnAction(e -> window.close());
 
-        CheckBox isPlayerTwoComputer = new CheckBox("play with computer");
+
+        CheckBox isPlayerOneComputer = new CheckBox("is computer");
+        isPlayerOneComputer.setSelected(false);
+        GridPane.setConstraints(isPlayerOneComputer, 0, 4,2,1);
+
+        CheckBox isPlayerTwoComputer = new CheckBox("is computer");
         isPlayerTwoComputer.setSelected(true);
         GridPane.setConstraints(isPlayerTwoComputer, 4, 4,2,1);
 
         gridPane.getChildren().addAll(player1NameLabel, player1NameField, player1FiguresLabel, figureBox1,
                 player2NameLabel, player2NameField, player2FiguresLabel, figureBox2,
-                roundsLabel, roundsBox, playButton, isPlayerTwoComputer);
+                roundsLabel, roundsBox, playButton, isPlayerOneComputer, isPlayerTwoComputer);
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
         window.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
         window.showAndWait();
 
-        Player player1 = new Player(player1NameField.getText(), Figure.O);
-        Player player2 = new Player(player2NameField.getText(), Figure.X);
+        Player player1 = new Player(player1NameField.getText(), 0, Figure.O, isPlayerOneComputer.isSelected());
+        Player player2 = new Player(player2NameField.getText(),0, Figure.X, isPlayerTwoComputer.isSelected());
         if (figureBox1.getValue().equals("X")) {
-            player1 = new Player(player1NameField.getText(), Figure.X);
-            player2 = new Player(player2NameField.getText(), Figure.O);
+            player1 = new Player(player2NameField.getText(),0, Figure.X, isPlayerTwoComputer.isSelected());
+            player2 = new Player(player1NameField.getText(), 0, Figure.O, isPlayerOneComputer.isSelected());
         }
-        return new GameState(player1, player2, roundsBox.getValue(), isPlayerTwoComputer.isSelected());
+        return new GameState(player1, player2, roundsBox.getValue());
     }
 }
