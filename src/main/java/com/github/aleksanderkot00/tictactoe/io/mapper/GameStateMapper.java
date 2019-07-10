@@ -20,7 +20,7 @@ public class GameStateMapper {
 
         return new GameState(
                 playerOne, playerTwo, gameStateDto.getNumberOfDraws(),
-                gameStateDto.getRoundsToWin(), roundState, gameStateDto.isPlayerTwoComputer());
+                gameStateDto.getRoundsToWin(), roundState);
     }
 
     public GameStateDto mapToGameStateDto(GameState gameState) {
@@ -37,6 +37,6 @@ public class GameStateMapper {
 
         return new GameStateDto(
                 playerOne, playerTwo, gameState.getNumberOfDraws(),
-                gameState.getRoundsToWin(), gameState.isPlayerTwoComputer(), roundState);
+                gameState.getRoundsToWin(), roundState);
     }
 }

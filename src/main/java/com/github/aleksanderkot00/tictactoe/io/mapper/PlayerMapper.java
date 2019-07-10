@@ -8,7 +8,8 @@ public class PlayerMapper {
         return new Player(
                 playerDto.getName(),
                 playerDto.getRoundsWon(),
-                playerDto.getFigure()
+                playerDto.getFigure(),
+                playerDto.isComputer()
         );
     }
 
@@ -16,7 +17,8 @@ public class PlayerMapper {
         return new PlayerDto(
                 player.getName(),
                 player.getRoundsWon(),
-                player.getFigure()
+                player.getFigure(),
+                player.isComputer()
         );
     }
 }

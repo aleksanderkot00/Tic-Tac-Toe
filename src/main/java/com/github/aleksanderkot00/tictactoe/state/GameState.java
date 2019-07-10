@@ -9,25 +9,22 @@
     private int numberOfDraws;
     private int roundsToWin;
     private RoundState roundState;
-    private boolean isPlayerTwoComputer;
 
-    public GameState(Player playerOne, Player playerTwo, int roundsToWin, boolean isPlayerTwoComputer) {
+    public GameState(Player playerOne, Player playerTwo, int roundsToWin) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         this.roundsToWin = roundsToWin;
-        this.isPlayerTwoComputer = isPlayerTwoComputer;
         numberOfDraws = 0;
         roundState = new RoundState();
     }
 
      public GameState(Player playerOne, Player playerTwo, int numberOfDraws, int roundsToWin,
-                      RoundState roundState, boolean isPlayerTwoComputer) {
+                      RoundState roundState) {
          this.playerOne = playerOne;
          this.playerTwo = playerTwo;
          this.numberOfDraws = numberOfDraws;
          this.roundsToWin = roundsToWin;
          this.roundState = roundState;
-         this.isPlayerTwoComputer = isPlayerTwoComputer;
      }
 
      private void drawRound() {
@@ -100,8 +97,4 @@
      public int getNumberOfDraws() {
          return numberOfDraws;
      }
-
-     public boolean isPlayerTwoComputer() {
-        return isPlayerTwoComputer;
-    }
-}
+ }

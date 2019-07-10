@@ -8,16 +8,14 @@ public class GameStateDto {
     private PlayerDto playerTwo;
     private int numberOfDraws;
     private int roundsToWin;
-    private boolean isPlayerTwoComputer;
     private Figure[] roundState;
 
     public GameStateDto(PlayerDto playerOne, PlayerDto playerTwo, int numberOfDraws,
-                        int roundsToWin, boolean isPlayerTwoComputer, Figure[] roundState) {
+                        int roundsToWin, Figure[] roundState) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         this.numberOfDraws = numberOfDraws;
         this.roundsToWin = roundsToWin;
-        this.isPlayerTwoComputer = isPlayerTwoComputer;
         this.roundState = roundState;
     }
 
@@ -35,10 +33,6 @@ public class GameStateDto {
 
     public int getRoundsToWin() {
         return roundsToWin;
-    }
-
-    public boolean isPlayerTwoComputer() {
-        return isPlayerTwoComputer;
     }
 
     public Figure[] getRoundState() {

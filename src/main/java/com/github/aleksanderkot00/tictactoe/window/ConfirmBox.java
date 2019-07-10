@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class ConfirmBox {
 
-    static boolean answer;
+    private static boolean answer;
 
     public static boolean display(String title, String message) {
         Stage window = new Stage();
@@ -42,12 +42,12 @@ public class ConfirmBox {
         HBox hBox = new HBox(20);
         hBox.getChildren().addAll(yesButton, noButton);
 
-        VBox layot = new VBox(10);
+        VBox layout = new VBox(10);
         hBox.setAlignment(Pos.CENTER);
-        layot.getChildren().addAll(label, hBox);
-        layot.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(label, hBox);
+        layout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(layot);
+        Scene scene = new Scene(layout);
         window.setScene(scene);
         window.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
         window.showAndWait();
