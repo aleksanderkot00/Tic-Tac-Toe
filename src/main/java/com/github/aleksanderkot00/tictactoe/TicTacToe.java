@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class TicTacToe extends Application {
 
     public static void main(String[] args) {
@@ -25,14 +27,26 @@ public class TicTacToe extends Application {
 
         Board board = new Board(gameState);
         board.setAlignment(Pos.CENTER);
-        Menu menu = new Menu(board, primaryStage);
 
-        BorderPane border = new BorderPane();
-        border.setStyle("-fx-background-color: black;");
-        border.setCenter(board);
-        border.setTop(menu);
+        Menu menu = new Menu(primaryStage);
 
-        Scene scene = new Scene(border, 800, 650);
+        menu.addListener((actionType, param) -> {
+            switch (actionType) {
+                case "NEW":
+                    board.setGameState(NewGameWindow.display());
+                    board.createBoard();
+                    break;
+                case "SAVE":
+                    board.save((File) param);
+                    break;
+                case "LOAD":
+                    board.load((File) param);
+            }
+
+        });
+
+        Scene scene = getScene(board, menu);
+
         primaryStage.setTitle("Tic-Tac-Toe");
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("file:src/main/resources/icon.jpg"));
@@ -47,5 +61,13 @@ public class TicTacToe extends Application {
         });
         primaryStage.setMinWidth(primaryStage.getWidth());
         primaryStage.setMinHeight(primaryStage.getHeight());
+    }
+
+    private Scene getScene(Board board, Menu menu) {
+        BorderPane border = new BorderPane();
+        border.setStyle("-fx-background-color: black;");
+        border.setCenter(board);
+        border.setTop(menu);
+        return new Scene(border, 800, 650);
     }
 }

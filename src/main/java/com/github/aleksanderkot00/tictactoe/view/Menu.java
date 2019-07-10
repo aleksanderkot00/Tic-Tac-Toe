@@ -1,6 +1,5 @@
 package com.github.aleksanderkot00.tictactoe.view;
 
-import com.github.aleksanderkot00.tictactoe.window.NewGameWindow;
 import com.github.aleksanderkot00.tictactoe.window.ConfirmBox;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -9,10 +8,19 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Menu extends HBox {
 
-    public Menu(Board board, Stage primaryStage) {
+    public interface MenuListener {
+        void onManuAction(String actionType, Object param);
+    }
+
+    private List<MenuListener> listeners = new ArrayList<>();
+
+    public Menu(Stage primaryStage) {
 
         setPadding(new Insets(15, 12, 15, 12));
         setSpacing(10);
@@ -20,21 +28,26 @@ public class Menu extends HBox {
 
         Button newGame = new Button("New game");
         newGame.setPrefSize(100, 20);
+
         newGame.setOnAction(e -> {
             boolean answer = ConfirmBox.display("New game confirmation",
                     "Are you sure you want to play new game?");
             if (answer) {
-                board.setGameState(NewGameWindow.display());
-                board.createBoard();
+                listeners.forEach(c -> {
+                    c.onManuAction("NEW", null);
+                });
             }
         });
 
         Button saveGame = new Button("Save game");
         saveGame.setPrefSize(100, 20);
+
         saveGame.setOnAction(e -> {
             File file = createFileChooser().showSaveDialog(primaryStage);
             if (file != null) {
-                board.save(file);
+                listeners.forEach(l -> {
+                    l.onManuAction("SAVE", file);
+                });
             }
         });
 
@@ -43,11 +56,17 @@ public class Menu extends HBox {
         loadGame.setOnAction(e -> {
             File file = createFileChooser().showOpenDialog(primaryStage);
             if (file != null) {
-                board.load(file);
+                listeners.forEach(l -> {
+                    l.onManuAction("LOAD", file);
+                });
             }
         });
 
         getChildren().addAll(newGame, saveGame, loadGame);
+    }
+
+    public void addListener(MenuListener menuListener) {
+        this.listeners.add(menuListener);
     }
 
     private FileChooser createFileChooser() {
