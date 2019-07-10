@@ -10,12 +10,28 @@ both the computer and the second player.
 - JavaFX
 
 ## 3. DEMO
-![](https://www.dropbox.com/s/yhxauln17c9zidp/tic-tac-toe_1.png?dl=1)
-![](https://www.dropbox.com/s/7xswspy8elab1om/tic-tac-toe_2.png?dl=1)
-![](https://www.dropbox.com/s/qz4bbgvrxv5c3cn/tic-tac-toe_3.png?dl=1)
-![](https://www.dropbox.com/s/rgbqq3n940pbf31/tic-tac-toe_4.png?dl=1)
 
-## 4. FUTURE PLANS
+![](demo/tic-tac-toe_1.png)
+
+
+![](demo/tic-tac-toe_2.png)
+
+
+![](demo/tic-tac-toe_3.png)
+
+
+![](demo/tic-tac-toe_4.png)
+
+## 4. HOW TO BUILD
+
+Follow these simple steps to create a play this game:
+
+1. Clone this project
+1. Build: `gradlew.bat build`
+1. Run: `java -jar build/libs/tic-tac-toe-1.0-SNAPSHOT.jar`
+
+## 5. FUTURE PLANS
 
 - Improvement of computer move generator algorithm
 - Allow computer vs computer games
+- Addition of unit tests

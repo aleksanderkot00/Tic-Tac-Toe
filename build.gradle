@@ -2,7 +2,14 @@ plugins {
     id 'java'
 }
 
-group 'com.github.aleksanderkot00.tic-tac-toe'
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.github.aleksanderkot00.tictactoe.TicTacToe'
+    }
+}
+
+
+group 'com.github.aleksanderkot00.tictactoe.TicTacToe'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
